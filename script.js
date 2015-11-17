@@ -33,6 +33,11 @@ var customer = new Customer(100, 0, 0, 0, 0);
 
 $(document).ready(function(){
 
+$cash = $('<p>');
+$cash.text('$' + customer.cash);
+
+$('.cash').append($cash);
+
 fruitArray.forEach(function(elem){
 	var $div = $('<div class="container">');
 	var $img = $('<img>');
@@ -41,9 +46,10 @@ fruitArray.forEach(function(elem){
 	var $price = $('<p class="price">');
 	var $avgPrice = $('<p class="avgPrice">');
 
-	$img.attr('src', elem.img + '.jpg');
+	$img.attr('src', 'assets/' + elem.img + '.png')
+			.attr('alt', elem.fruitName);
 	$btnBuy.text('Buy');
-	$btnSell.text('Sell'); 
+	$btnSell.text('Sell');
 	$price.text('Current Price: ' + '$' + elem.price);
 	$avgPrice.text('Average Price ' + '$' + elem.avgPrice);
 
@@ -52,7 +58,9 @@ fruitArray.forEach(function(elem){
 	$('.fruitBasket').append($div);
 	});
 
-	
+
+
+
 
 
 
